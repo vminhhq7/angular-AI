@@ -7,7 +7,7 @@ import axios from 'axios';
 
 export class SearchService {
   private apiUrl = 'https://api.openai.com/v1/images/generations'; // URL DALL-E API
-  private apiKey = 'sk-0tcdIGiBO-0NTYhWhFtfOTLxAR8OuCQKM4xQndIi1ZT3BlbkFJwedD7A-K9VLgKlTOMOipWSDtq6Dfpr11FTrU2KlLwA'; 
+  private apiKey = ''; 
   constructor() { }
 
   public generateImage(prompt: string, size:string = '1024x1024'): Promise<any> {
