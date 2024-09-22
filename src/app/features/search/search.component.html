@@ -12,11 +12,10 @@
             <div>Tuỳ chọn size: </div> 
             <nz-select style="width: 200px;" [(ngModel)]="sizeImg">
                 <nz-option *ngFor="let item of sizeImgList" [nzValue]="item.value" [nzLabel]="item.label"></nz-option>
-                
             </nz-select>
         </div>
     </div>
     <div class="search__result">
-        
+        <img *ngIf="resImg" [src]="resImg" alt="Generated Image">
     </div>
 </div>

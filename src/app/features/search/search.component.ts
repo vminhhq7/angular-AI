@@ -1,6 +1,6 @@
 import { SearchService } from './../../services/search.service';
 import { Component, OnInit } from '@angular/core';
-
+import {NzNotificationService} from 'ng-zorro-antd/notification'
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -23,15 +23,19 @@ export class SearchComponent implements OnInit {
       label : '1024x1024 px'
     }
   ]
-  constructor(private _searchService:SearchService) { }
+  public resImg=  '';
+  constructor(private _searchService:SearchService, private notification: NzNotificationService) { }
 
   ngOnInit(): void {
   }
 
   public genImg() {
+    const imgNotFound= 'https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png'
     this._searchService.generateImage(this.keysearch, this.sizeImg).then(res => {
-      if(res) {
-        console.log(res);
+      if(res && res.data && res.data.length ) {
+        this.resImg = res.data[0].url || imgNotFound
+      } else {
+        this.notification.error('Thông báo', 'Không thể tạo được hình ảnh, vui lòng nhập lại thông tin');
       }
     })
   }
