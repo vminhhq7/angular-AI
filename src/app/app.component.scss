@@ -1,0 +1,15 @@
+.app {
+    display: block;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    &__title {
+        font-weight: 600;
+        font-size: 22px;
+    }
+
+    &__content {
+        min-width: 70vw;
+    }
+
+}

@@ -1,0 +1,22 @@
+<div class="search">
+    <div class="search__input">
+        <div>
+            <nz-input-group nzSearch [nzAddOnAfter]="suffixButton">
+                <input type="text" nz-input [(ngModel)]="keysearch" placeholder="Nhập từ khoá gen ảnh" />
+              </nz-input-group>
+              <ng-template #suffixButton>
+                <button nz-button nzType="primary" nzSize="large" nzSearch (click)="genImg()">Tạo ảnh</button>
+              </ng-template>
+        </div>
+       <div class="search__size-img">
+            <div>Tuỳ chọn size: </div> 
+            <nz-select style="width: 200px;" [(ngModel)]="sizeImg">
+                <nz-option *ngFor="let item of sizeImgList" [nzValue]="item.value" [nzLabel]="item.label"></nz-option>
+                
+            </nz-select>
+        </div>
+    </div>
+    <div class="search__result">
+        
+    </div>
+</div>
